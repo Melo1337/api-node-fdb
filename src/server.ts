@@ -17,7 +17,7 @@ app.post('/api/filter', async (req: Request, res: Response): Promise<void> => {
         res.status(400).json({ erro: "Nome é obrigatório"})
         return;
     } 
-    res.status(400).json({ erro: "Nome é obrigatório"})
+    res.status(200).json({ Mensagem: `Você enviou o nome: ${nome}`})
 })
 
 app.get('/api/filter', async (req: Request, res: Response): Promise<void> => {
