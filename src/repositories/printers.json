@@ -1,0 +1,187 @@
+{
+  "impressoras": [
+    {
+      "nome": "Brother MFC-9330CDW",
+      "preco": 2500.0,
+      "descricao": "Multifuncional semi-nova, laser, Colorida, wi-fi",
+      "imagemSrc": "imp1",
+      "headFeatures": [
+        "Até 23 páginas por minuto",
+        "Conectividade sem Fio - Wirelless",
+        "Impressão e scanner coloridos"
+      ],
+      "feature": {
+        "impressão": {
+          "Velocidade de impressão": "23 páginas por minuto",
+          "Tipo de consumível": "Cartucho e tambor de toner",
+          "Compatibilidade do driver da impressora": "Windows, macOS, Linux",
+          "Capacidade de impressão frente e verso": "sim"
+        },
+        "conectividade": {
+          "Compatibilidade com dispositivos móveis": "Google Cloud Print™, Brother iPrint&Scan, Wi-Fi Direct®",
+          "Interface(s) padrão": "Conectividade sem fio 802.11 b/g/n, USB 2.0 de alta velocidade"
+        },
+        "cópia": {
+          "Copiar resolução": "600 x 600 dpi máx",
+          "Cópia frente e verso": "Não",
+          "Velocidade de cópia": "Velocidade de cópia em preto (máx. ppm)"
+        },
+        "digiralizador": {
+          "Serviços em nuvem": "Box/Box for Business, OneNote, SharePoint Online, Google Drive™/Google Drive for Business, Evernote®/Evernote Business, OneDrive/OneDrive for Business, Dropbox/Dropbox for Business",
+          "Digitalização duplex": "Não",
+          "Recurso Escanear para": "E-mail, PC (Arquivo, E-mail, Imagem, OCR), FTP, Pasta de Rede (CIFS - somente Windows), Servidor de E-mail (download)",
+          "Formatos de arquivo de digitalização": "JPEG (JPG), PDF (página única/várias páginas) (PDF/A, PDF de alta compressão), TIFF (página única/várias páginas) (TIF), Bitmap do Windows (BMP), MAX",
+          "Resolução de digitalização óptica": "1200 x 2400 dpi",
+          "Digitalização de dispositivos móveis": "Brother iPrint&Scan"
+        },
+        "geral": {
+          "Peso unitário (lbs)": "51.1",
+          "Dimensões da unidade (L x P x A)": "16,1 x 19,0 x 16,1",
+          "Visor LCD": "Tela sensível ao toque colorida de 3,7",
+          "Volume de impressão mensal recomendado": "300 a 1.500 páginas",
+          "Capacidade de saída de papel": "100",
+          "Capacidade de entrada de papel padrão": "250",
+          "Tamanho do papel a ser manuseado - Alimentação manual": "Carta, Envelope, Ofício, Executivo, A4, A5, A6"
+        }
+      }
+    },
+    {
+      "nome": "Brother Mfc-9460CDN",
+      "preco": 2000.0,
+      "descricao": "Multifuncional semi-nova, laser, Colorida",
+      "imagemSrc": "imp2",
+      "headFeatures": [
+        "Até 18 páginas por minuto",
+        "Conectividade sem Fio - Wirelless",
+        "Impressão e scanner coloridos"
+      ],
+      "feature": {
+        "impressão": {
+          "Resolução": "Qualidade de 600 x 600 dpi, 2400 dpi",
+          "Emulação": "PCL6, BR-Script3",
+          "Tipo de consumível": "Cartucho e tambor de toner",
+          "Compatibilidade do driver da impressora": "Windows, macOS, Linux",
+          "Impressão duplex automática": "sim"
+        },
+        "conectividade": {
+          "USB": "Alta velocidade 2.0",
+          "Ethernet": "10/100BASE-TX"
+        },
+        "cópia": {
+          "Cópia múltipla/Empilhamento": "Sim (Até 99)",
+          "Cópia frente e verso": "Não",
+          "Largura de digitalização de documentos": "A4 (ADF/FB): 204 mm, 8,03 polegadas; LTR (ADF/FB): 210 mm, 8,27 polegadas"
+        },
+        "digiralizador": {
+          "Monocromático/Colorido": "Cor",
+          "Resolução do vidro": "Resolução máxima de 1200 x 2400 dpi",
+          "Resolução (Interpolada)": "Resolução máxima de 19.200 x 19.200 dpi",
+          "Escala de cinza": "256 níveis",
+          "Profundidade de cor (interna/externa)": "48 bits / 24 bits"
+        },
+        "geral": {
+          "Bandeja de entrada de papel/padrão": "250 folhas",
+          "Entrada de papel/ADF": "35 folhas",
+          "Saída em papel": "150 folhas com a face para baixo",
+          "Tipos de mídia/Bandeja MP": "Papel comum, Papel fino, Papel grosso, Papel mais grosso, Papel reciclado, Papel sulfite, Etiqueta, Envelope, Envelope fino, Envelope grosso, Papel brilhante",
+          "Tamanhos de mídia/Bandeja padrão": "A4, Carta, B5 (ISO/JIS), A5, A5 (Borda Longa), B6 (ISO), A6, Executivo, Ofício, Fólio",
+          "Dimensões da máquina (LxPxA)": "410 x 503 x 492 mm (16,1 x 19,8 x 19,4 polegadas)",
+          "Peso sem caixa, com toner/tambor": "26,5 kg / 58,4 lb"
+        },
+        "energia": {
+          "Fonte de alimentação": "110-120 V CA 50/60 Hz",
+          "Consumo de energia (cópia)": "Média: Aproximadamente 575 W",
+          "Consumo de energia (pronto)": "Média: Aproximadamente 70 W",
+          "Consumo de energia (modo de hibernação profunda)": "Média: Aproximadamente 1,5 W"
+        }
+      }
+    },
+    {
+      "nome": "HP LaserJet Color CP1215",
+      "preco": 800.0,
+      "descricao": "Impressora semi-nova, laser, Colorida",
+      "imagemSrc": "imp3",
+      "headFeatures": [
+        "Cores vibrantes",
+        "Alta qualidade incrivelmente fácil e mais acessível",
+        "Impressora compacta"
+      ],
+      "feature": {
+        "Velocidade de impressão": {
+          "Qualidade normal, preto, carta ": "Até 12 ppm",
+          "Qualidade normal cor, carta": "Até 8 ppm",
+          "Qualidade otimizada, preto, carta": "Até 12 ppm",
+          "Saída da primeira página impressa, preto, carta": "24 segundos"
+        },
+        "Resolução": {
+          "Qualidade de resolução de impressão otimizada, preto": "Até 600 x 600 dpi",
+          "Qualidade de resolução de impressão otimizada, cor": "Até 600 x 600 dpi"
+        },
+        "Manuseio de papel": {
+          "Capacidade de entrada padrão": "Até 150 folhas",
+          "Capacidade de entrada máxima": "Até 150 folhas",
+          "Capacidade de entrada máxima (bandeja 1)": "Folhas:150, transparências:50, cartões:50, envelopes:10",
+          "Capacidade de saída padrão": "Até 125 folhas",
+          "Capacidade de saída máxima": "Até 125 folhas",
+          "Ciclo de trabalho": "Até 25000 páginas",
+          "Volume recomendado de páginas por mês": "250 a 1000 páginas por mês",
+          "Tipos de papel": "Papel (bond, folheto, colorido, lustroso, timbrado, fotográfico, comum, pré-impresso, pré-perfurado, reciclado, resistente), transparências, etiquetas, envelopes, cartolinas",
+          "Impressão frente e verso Manual": "sim",
+          "Tamanhos de papel Bandeja de entrada de 150 folhas": "76 x 127 a 216 x 356 mm"
+        },
+        "Cartuchos": {
+          "Número de cartuchos de impressão": "4 (1 preto, 1 ciano, 1 magenta, 1 amarelo)",
+          "Cores dos cartuchos de impressão": "Preto, ciano, magenta, amarelo"
+        },
+        "geral": {
+          "Garantia do vendedor": "3 meses",
+          "Scanner": "Não",
+          "Conectividade padrão": "Porta USB 2.0 de alta velocidade",
+          "Portas E/S": "externas 1 USB"
+        }
+      }
+    },
+    {
+      "nome": "Brother DCP-8157DN",
+      "preco": 1000.0,
+      "descricao": "Multifuncional, semi-nova, laser",
+      "imagemSrc": "imp4",
+      "headFeatures": [
+        "Multifuncional (impressão e scanner)",
+        "Semi-nova (recondicionada)",
+        "Impressão a laser"
+      ],
+      "feature": {
+        "geral": {
+          "Bandeja de entrada de papel/padrão": "250 folhas",
+          "Entrada de papel/ADF": "35 folhas",
+          "Saída em papel": "150 folhas com a face para baixo (80 g/m²) 1 folha com a face para cima",
+          "Tipo LCD": "2,76 x 1,06 polegadas",
+          "Dimensões da máquina (LxPxA)": "410 x 503 x 492 mm (16,1 x 19,8 x 19,4 polegadas)",
+          "Peso sem caixa, com toner/tambor": "26,5 kg / 58,4 lb"
+        },
+        "Impressora": {
+          "Resolução": "Qualidade de 600 x 600 dpi, 2400 dpi (2400 x 600)",
+          "Impressão duplex automática": "Sim",
+          "Tipos de mídia/Bandeja padrão": "Papel comum, papel fino, papel reciclado",
+          "Tipos de mídia/Bandeja MP": "Papel comum, Papel fino, Papel grosso, Papel mais grosso, Papel reciclado, Papel sulfite, Etiqueta, Envelope, Envelope fino, Envelope grosso, Papel brilhante",
+          "Tamanhos de mídia/Bandeja padrão": "A4, Carta, B5 (ISO/JIS), A5, A5 (Borda Longa), B6 ISO), A6, Executivo, Ofício, Fólio"
+        },
+        "cópia": {
+          "Cópia múltipla/Empilhamento": "Sim (Até 99)",
+          "Largura de digitalização de documentos": "A4 (ADF/FB): 204 mm, 8,03 polegadas; LTR (ADF/FB): 210 mm, 8,27 polegadas"
+        },
+        "scan": {
+          "Monocromático/Colorido": "Cor",
+          "Resolução do vidro (óptico)": "Resolução máxima de 1200 x 2400 dpi",
+          "Escala de cinza": "256 níveis",
+          "Profundidade de cor (interna/externa)": "48   bits / 24 bits"
+        },
+        "interface": {
+          "USB": "Alta velocidade 2.0",
+          "Ethernet": "10/100BASE-TX"
+        }
+      }
+    }
+  ]
+}
