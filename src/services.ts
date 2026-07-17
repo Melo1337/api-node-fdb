@@ -1,5 +1,5 @@
 // services.ts
-import { getConnection } from './database';
+import { getConnection } from './repositories/conect-database';
 
 const CAMPOS_PARA_REMOVER_PRODUTOS = new Set<string>([
     'codigo_barra', 'fornecedor', 'embalagem', 'comissao', 'venda_sem_estoque', 
