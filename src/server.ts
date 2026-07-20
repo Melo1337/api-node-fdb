@@ -1,7 +1,5 @@
-// app.ts
 import express, { Request, Response } from 'express';
 import cors from 'cors';
-import { fetchProdutosFiltrados, fetchGenericData } from './services';
 import router from './routes';
 
 const app = express();
@@ -15,7 +13,5 @@ app.use('/api', router)
 
 app.listen(PORT, () => {
     console.log('  GET /api/filter');
-    console.log('  GET /api/admins');
-    console.log('  GET/POST /api/clientes');
-    console.log('  GET /api/equipamentos');
+    console.log('  GET /api/ (nome da tabela)');
 });

@@ -13,13 +13,24 @@ export const produtosFiltradosController = async (req: Request, res: Response): 
 
 export const genericDataController = async (req: Request, res: Response): Promise<void> => {
     
-    const tableName = req.params
+    const { tables } = req.params; 
+    const valorString = Array.isArray(tables) ? tables[0] : tables;
     
     try {
-        const dados = await service.fetchGenericData(tableName);
+        const dados = await service.fetchGenericData(valorString);
         res.json(dados);
     } catch (error: any) {
         console.error("❌ Erro em /api/admins:", error);
+        res.status(500).json({ error: error.message });
+    }
+}
+
+export const getTables = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const dados = await service.getTables();
+        res.json(dados);
+    } catch (error: any) {
+        console.error("❌ Erro em /api/tables", error);
         res.status(500).json({ error: error.message });
     }
 }
