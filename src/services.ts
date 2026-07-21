@@ -97,7 +97,7 @@ export async function fetchGenericData(tabela: string): Promise<CategoriaDados> 
 
 export async function getTables(): Promise<string[]> {
     const db = await getConnection();
-    
+
     // Consulta usando os nomes originais das colunas do Firebird
     const sql = `
         SELECT RDB$RELATION_NAME 
@@ -132,3 +132,31 @@ export async function getTables(): Promise<string[]> {
         });
     });
 }
+
+export const fetchChamados = async () => {
+    let db: any = null;
+
+    try {
+        db = await getConnection();
+
+        const sql = "SELECT * FROM SERVICO_CLIENTE WHERE UPPER(STATUS) = 'ORÇAMENTO' AND nome_cliente IS NOT NULL";
+
+        return new Promise<any[]>((resolve, reject) => {
+            db.query(sql, (err: any, result: any[]) => {
+                if (err) {
+                    if (db) db.detach(); 
+                    return reject(err);
+                }
+                
+                if (db) db.detach();
+                resolve(result);
+            });
+        });
+
+    } catch (error) {
+        if (db) {
+            try { db.detach(); } catch (e) { }
+        }
+        throw error;
+    }
+};

@@ -13,8 +13,8 @@ export const produtosFiltradosController = async (req: Request, res: Response): 
 
 export const genericDataController = async (req: Request, res: Response): Promise<void> => {
     
-    const { tables } = req.params; 
-    const valorString = Array.isArray(tables) ? tables[0] : tables;
+    const { nameTable } = req.params; 
+    const valorString = Array.isArray(nameTable) ? nameTable[0] : nameTable;
     
     try {
         const dados = await service.fetchGenericData(valorString);
@@ -31,6 +31,16 @@ export const getTables = async (req: Request, res: Response): Promise<void> => {
         res.json(dados);
     } catch (error: any) {
         console.error("❌ Erro em /api/tables", error);
+        res.status(500).json({ error: error.message });
+    }
+}
+
+export const getChamados = async (req: Request, res: Response): Promise<void> => {
+     try {
+        const dados = await service.fetchChamados();
+        res.json(dados);
+    } catch (error: any) {
+        console.error("❌ Erro em /api/chamados:", error);
         res.status(500).json({ error: error.message });
     }
 }

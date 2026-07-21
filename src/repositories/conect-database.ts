@@ -12,9 +12,10 @@ const DB_CONFIG: Firebird.Options = {
     pageSize: 4096
 };
 
-export function getConnection(): Promise<Firebird.Database> {
+export function getConnection(): Promise<any> {
     return new Promise((resolve, reject) => {
-        Firebird.attach(DB_CONFIG, (err, db) => {
+        // Adicionado ": any" explicitamente no parâmetro 'err'
+        Firebird.attach(DB_CONFIG, (err: any, db: any) => {
             if (err) return reject(err);
             resolve(db);
         });
