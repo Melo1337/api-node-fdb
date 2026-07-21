@@ -41,7 +41,6 @@ export async function fetchProdutosFiltrados(): Promise<CategoriaDados> {
                 const dadosLimpos: Record<string, any> = {};
 
                 Object.keys(row).forEach(coluna => {
-                    if (Buffer.isBuffer(row[coluna])) return;
 
                     if (!CAMPOS_PARA_REMOVER_PRODUTOS.has(coluna.toLowerCase())) {
                         dadosLimpos[coluna] = limparValor(row[coluna]);
@@ -80,7 +79,6 @@ export async function fetchGenericData(tabela: string): Promise<CategoriaDados> 
                 const item: Record<string, any> = {};
 
                 Object.keys(row).forEach(coluna => {
-                    if (Buffer.isBuffer(row[coluna])) return;
                     item[coluna] = limparValor(row[coluna]);
                 });
 
@@ -123,11 +121,6 @@ export async function getTables(): Promise<string[]> {
                     let value = row['RDB$RELATION_NAME'] || row['rdb$relation_name'];
 
                     if (!value) return null;
-
-                    // Se o driver entregar como Buffer binário, converte para string
-                    if (Buffer.isBuffer(value)) {
-                        value = value.toString('utf-8');
-                    }
 
                     return typeof value === 'string' ? value.trim() : String(value).trim();
                 }).filter(Boolean) as string[]; // Remove nulos se houver alguma falha
