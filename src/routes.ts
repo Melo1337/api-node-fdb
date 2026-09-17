@@ -10,4 +10,9 @@ router.get('/tables/:nameTable', controller.genericDataController)
 
 router.get('/chamados', controller.getChamados)
 
+router.post('/login', controller.postLogin)
+router.get('/validation', controller.getValidation)
+
+router.post('/contagem', controller.postContagem)
+
 export default router

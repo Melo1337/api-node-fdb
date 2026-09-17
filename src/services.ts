@@ -1,4 +1,8 @@
 import { getConnection } from './repositories/conect-database';
+import jwt from 'jsonwebtoken'
+import { IHistoricoAgosto } from './models/historicoModel';
+
+const ACESS_TOKEN_KEY = process.env.ACESS_TOKEN_KEY || '';
 
 const CAMPOS_PARA_REMOVER_PRODUTOS = new Set<string>([
     'codigo_barra', 'fornecedor', 'embalagem', 'comissao', 'venda_sem_estoque',
@@ -31,7 +35,7 @@ export async function fetchProdutosFiltrados(): Promise<CategoriaDados> {
     `;
 
     return new Promise((resolve, reject) => {
-        db.query(sql, [], (err, rows: any[]) => {
+        db.query(sql, [], (err: any, rows: any[]) => {
             db.detach();
             if (err) return reject(err);
 
@@ -69,7 +73,7 @@ export async function fetchGenericData(tabela: string): Promise<CategoriaDados> 
     const sql = `SELECT * FROM ${tabela}`;
 
     return new Promise((resolve, reject) => {
-        db.query(sql, [], (err, rows: any[]) => {
+        db.query(sql, [], (err: any, rows: any[]) => {
             db.detach();
             if (err) return reject(err);
 
@@ -108,7 +112,7 @@ export async function getTables(): Promise<string[]> {
 
     return new Promise((resolve, reject) => {
         // Passar o array vazio [] garante que o driver node-firebird identifique o callback
-        db.query(sql, [], (err, rows) => {
+        db.query(sql, [], (err: any, rows: any) => {
             if (err) return reject(err);
 
             if (!rows || rows.length === 0) {
@@ -144,10 +148,10 @@ export const fetchChamados = async () => {
         return new Promise<any[]>((resolve, reject) => {
             db.query(sql, (err: any, result: any[]) => {
                 if (err) {
-                    if (db) db.detach(); 
+                    if (db) db.detach();
                     return reject(err);
                 }
-                
+
                 if (db) db.detach();
                 resolve(result);
             });
@@ -159,4 +163,84 @@ export const fetchChamados = async () => {
         }
         throw error;
     }
+};
+
+export const fetchLogin = async (email: string, senha: string) => {
+    const db = await getConnection();
+    const sql = `SELECT * FROM VENDEDORES`;
+
+
+    return new Promise((resolve, reject) => {
+        db.query(sql, (err: any, result: any) => {
+            db.detach();
+
+            if (err) {
+                console.error(err)
+            }
+
+            const listAdmins = result || []
+
+            const user = listAdmins.find((user: any) => user.e_mail1 === email || user.e_mail2 === email)
+
+            if (!user) {
+                return reject(new Error("usuario nao encontrado!"))
+            }
+
+            if (user.senha !== senha) {
+                return reject(new Error('Senha invalida!'))
+            }
+
+            const token = jwt.sign({ email }, ACESS_TOKEN_KEY, { expiresIn: '15m' })
+            return resolve(token)
+        })
+    })
+}
+
+export const cadastroContagem = async (dados: IHistoricoAgosto): Promise<{ mensagem: string }> => {
+    const db = await getConnection();
+
+    const sql = `
+        INSERT INTO HISTORICO_AGOSTO (
+            CODIGO_CLIENTE, N_SERIE, DATA_CONTAGEM, CONTAGEM, 
+            N_COPIAS, COPIAS_ALEM, VALOR_ALEM, VALOR_PAGAR, 
+            PAGAMENTO, DATA_PAGAMENTO, CUSTO_FRANQUIA, CUSTO_ALEM, N_COPIAS_FRANQUIA
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `;
+
+    const { 
+        CODIGO_CLIENTE, N_SERIE, DATA_CONTAGEM, CONTAGEM, 
+        N_COPIAS, COPIAS_ALEM, VALOR_ALEM, VALOR_PAGAR, 
+        PAGAMENTO, DATA_PAGAMENTO, CUSTO_FRANQUIA, CUSTO_ALEM, N_COPIAS_FRANQUIA 
+    } = dados;
+
+    // Função auxiliar interna para limpar campos que venham vazios do formulário React
+    const tratarNulo = (valor: any) => (valor === "" || valor === undefined || valor === null ? null : valor);
+
+    const params = [
+        tratarNulo(CODIGO_CLIENTE), 
+        tratarNulo(N_SERIE), 
+        tratarNulo(DATA_CONTAGEM), 
+        tratarNulo(CONTAGEM), 
+        tratarNulo(N_COPIAS), 
+        tratarNulo(COPIAS_ALEM), 
+        tratarNulo(VALOR_ALEM), 
+        tratarNulo(VALOR_PAGAR), 
+        tratarNulo(PAGAMENTO), 
+        tratarNulo(DATA_PAGAMENTO), 
+        tratarNulo(CUSTO_FRANQUIA), 
+        tratarNulo(CUSTO_ALEM), 
+        tratarNulo(N_COPIAS_FRANQUIA)
+    ];
+
+    return new Promise((resolve, reject) => {
+        db.query(sql, params, (err: any, result: any) => {
+            if (typeof db.detach === 'function') db.detach();
+
+            if (err) {
+                return reject(new Error(`Erro ao inserir no Firebird: ${err.message}`));
+            }
+
+            resolve({ mensagem: 'Contagem cadastrada com sucesso!' });
+        });
+    });
 };

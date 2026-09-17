@@ -8,13 +8,12 @@ const DB_CONFIG: Firebird.Options = {
     database: CAMINHO_BANCO,
     user: 'SYSDBA',
     password: 'masterkey',
-    lowercase_keys: true, // Retorna os nomes das colunas em minúsculo
+    lowercase_keys: true,
     pageSize: 4096
 };
 
 export function getConnection(): Promise<any> {
     return new Promise((resolve, reject) => {
-        // Adicionado ": any" explicitamente no parâmetro 'err'
         Firebird.attach(DB_CONFIG, (err: any, db: any) => {
             if (err) return reject(err);
             resolve(db);
